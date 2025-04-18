@@ -19,24 +19,26 @@ export default function Home() {
   return (
     <div className="flex h-screen">
       {/* Chat panel */}
-      <div className="w-1/2 flex flex-col border-r border-gray-700">
-        <main className="flex-1 overflow-y-auto p-4 space-y-2">
-          {messages.map((msg, i) => (
-            <div key={i} className="self-start bg-gray-800 text-white px-3 py-2 rounded-md">
-              {msg}
-            </div>
-          ))}
-          <div ref={endRef} />
-        </main>
-        <div className="p-4 flex gap-2">
-          <Input
-            placeholder="Type a message..."
-            className="flex-1"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && send()}
-          />
-          <Button onClick={send}>Send</Button>
+      <div className="w-1/2 flex items-center justify-center bg-gray-900">
+        <div className="w-4/5 h-4/5 bg-gray-800 rounded-xl shadow-lg flex flex-col">
+          <main className="flex-1 overflow-y-auto p-4 space-y-2">
+            {messages.map((msg, i) => (
+              <div key={i} className="self-start bg-gray-800 text-white px-3 py-2 rounded-md">
+                {msg}
+              </div>
+            ))}
+            <div ref={endRef} />
+          </main>
+          <div className="p-4 flex gap-2 border-t border-gray-700">
+            <Input
+              placeholder="Type a message..."
+              className="flex-1"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && send()}
+            />
+            <Button onClick={send}>Send</Button>
+          </div>
         </div>
       </div>
       {/* Solar system panel */}
